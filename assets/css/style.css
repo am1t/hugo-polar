@@ -219,7 +219,6 @@ input#input_search {
 
 .lcol {
     width: 20%;
-    text-align: right;
 }
 
 .row:after {
@@ -278,5 +277,9 @@ input#input_search {
 
     .fade {
         background-image: linear-gradient(rgba(34,34,34,0), #030222) !important;
+    }
+
+    .previous-inactive, .next-inactive {
+        color: #4C516D;
     }
 }
