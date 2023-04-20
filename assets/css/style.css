@@ -44,6 +44,7 @@ a:hover {
 hr {
     width: 60%;
     max-width: 660px;
+    margin: 4rem auto;
 }
 
 code {
@@ -58,6 +59,15 @@ blockquote {
     margin-block-end: 1em;
     margin-inline-start: 0;
     margin-inline-end: 0;
+}
+
+ul, ol {
+    padding-inline-start: 20px;
+}
+
+li {
+    list-style: circle;
+    padding-left: 5px;
 }
 
 .fade {
@@ -178,6 +188,7 @@ a .generic-title {
 
 .t404 > a {
     color: var(--text);
+    text-decoration: none;
 }
 
 .d404 {
@@ -195,6 +206,26 @@ a .generic-title {
 }
 
 input#input_search {
+    width: 100%;
+}
+
+.lcol, .tcol {
+    float: left;
+}
+
+.tcol {
+    width: 80%;
+}
+
+.lcol {
+    width: 20%;
+    text-align: right;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
     width: 100%;
 }
 
