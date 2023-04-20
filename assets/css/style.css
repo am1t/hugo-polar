@@ -194,6 +194,10 @@ a .generic-title {
     text-align: center;
 }
 
+input#input_search {
+    width: 100%;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 768px) {
