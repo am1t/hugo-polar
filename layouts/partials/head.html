@@ -1,0 +1,25 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>{{ block "title" . }}{{ with .Title }}{{ . }} - {{ end }}Amit Gawande{{ end }}</title>
+    <meta name="description" content="Musings etc. from Amit Gawande">
+
+    <link rel="shortcut icon" href="https://amitgawande.com/uploads/2020/262374b94f.jpg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://amitgawande.com/uploads/2020/262374b94f.jpg" type="image/x-icon" />
+
+    <link rel="me" href="https://social.lol/@amit" />
+    <link rel="me" href="https://github.com/am1t">
+    <link rel="me" href="https://micro.blog/amit" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    {{ $style := resources.Get "css/style.css" | resources.ToCSS | resources.Minify }}
+    <link rel="preload stylesheet" as="style" href="{{ $style.Permalink }}">
+
+    <link rel="alternate" type="application/rss+xml"  href="https://amitgawande.com/feed"  title="Amit Gawande's Notes Feed">
+
+    {{ partial "mbhead.html" . }}
+</head>

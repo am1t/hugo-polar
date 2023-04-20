@@ -1,0 +1,11 @@
+name = "polar"
+license = "MIT"
+licenselink = "https://github.com/am1t/hugo-polar/blob/master/LICENSE"
+description = ""
+homepage = "http://amit-test.micro.blog/"
+tags = [minimal]
+min_version = "0.41.0"
+
+[author]
+  name = "Amit Gawande"
+  homepage = "https://amitgawande.com"

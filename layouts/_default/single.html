@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<div class="content">
+    <article class="h-entry post-single">
+    <header class="post-meta">
+        {{if eq .Type "post" }}
+        <p>
+        <a class="u-url" href="{{ .Permalink }}"><time class="dt-published">{{ .Date | time.Format ":date_medium" }}</time></a>
+        {{ if or .Params.Author site.Author.name }}
+        <span>{{ .Params.Author | default site.Author.name }}</span>
+        {{ end }}
+        </p>
+        {{ end }}
+        <h1 class="post-heading">
+            <a class="u-url" href="{{ .Permalink }}">
+                {{ if .Title }}
+                    <span class="post-title p-name">{{ .Title }}</span>
+                {{ else }}
+                    <span class="generic-title">#micropost</span>
+                {{ end }}
+            </a>
+            </h1>
+    </header>
+    <section class="e-content post-content">{{ .Content }}</section>
+
+    <!-- Post Tags -->
+    {{ if .Params.categories }}
+    <footer class="post-tags">
+        {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
+        <a href="{{ $href }}">#{{ . }}</a>
+        {{ end }}
+    </footer>
+    {{ end }}
+
+    <!-- Replies via Webmentions -->
+    {{ if .Site.Params.include_conversation }}
+    <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+    {{ end }}
+
+    </article>
+</div>
+
+{{ end }}
