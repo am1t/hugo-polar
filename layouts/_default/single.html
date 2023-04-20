@@ -1,3 +1,4 @@
+{{ define "main" }}
 {{ $link_text := $.Site.Params.reply_by_email_link_text }}
 {{ $show_title := $.Site.Params.reply_by_email_show_title }}
 {{ $show_plain := $.Site.Params.reply_by_email_show_plain }}
@@ -34,7 +35,7 @@
         <hr>
         <div class="pfhead"><h3>What next?</h3></div>
         <div class="pfmsg">
-            <p>Have something you'd like to respond with? <a href="mailto:{{ $email_address }}?subject={{ $subject }}">Send me a note via email</a> 
+            <p>Have something you'd like to respond with? <a class="reply-by-email" href="mailto:{{ $email_address }}?subject={{ $subject }}">Send me a note via email</a> 
                 and let's start a <a href="https://amitg.blog/interaction-not-reaction">conversation.</a>
             <p>You can also <a href="/feed">follow me via RSS</a>.</p></div>
     </div>
