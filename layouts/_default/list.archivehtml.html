@@ -2,7 +2,7 @@
 <main>
 <div class="content">
     <h1 class="t404"><a href="{{ .Site.Home.RelPermalink }}">{{ .Title }}</a></h1>
-    <div class="d404">{{ .Content }}</div>
+    <div class="d404">{{ with .Content }} {{ . }} {{ else }}You should not be on this page. It is empty <a href="/colophon">by design</a>.{{ end }}</div>
     {{ partial "pagenav.html" . }}
 </div>
 </main>
