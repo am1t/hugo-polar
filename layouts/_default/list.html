@@ -2,7 +2,8 @@
 <main>
 <div class="content">
     <h1 class="t404"><a href="{{ .Site.Home.RelPermalink }}">{{ .Title }}</a></h1>
-    <div class="d404">{{ .Content }}</div>
+    <div class="d404">{{ with .Content }} {{ . }} {{ else }} You should not be lead to this page. It is by design. {{ end }}</div>
+    <div class="separator"></div>
     <div class="page-nav">
         <a href="/search/">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="currentColor" class="bi bi-search" viewBox="-1 -1 16 16" style="position: relative; top: -1px">
