@@ -1,4 +1,14 @@
 {{ define "main" }}
+{{ $email_address := $.Site.Params.reply_by_email_address }}
+{{ $subject := $.Site.Params.reply_by_email_subject_prefix }}
+
+{{ if .Title }}
+  {{ $subject = print $subject .Title }}
+{{ else if (not .Title) }}
+  {{ $subject = (print $subject (replaceRE "(\\s)" " " .Plain)) | htmlUnescape | truncate 60 }}
+{{ else }}
+  {{ $subject = print $subject .Permalink }}
+{{ end }}
 
 <div class="content">
     <article class="h-entry post-single">
@@ -8,28 +18,27 @@
                 {{ if .Title }}
                     <span class="post-title p-name">{{ .Title }}</span>
                 {{ else }}
-                    <span class="generic-title">#micropost</span>
+                    <span class="generic-title">{{ if isset .Params "photos" }}#photopost{{ else if in .Params.categories "Links" }}#linkpost{{ else }}#micropost{{ end }}</span>
                 {{ end }}
             </a>
             </h1>
     </header>
     <section class="e-content post-content">{{ .Content }}</section>
+    </article>
 
-    <!-- Post Tags -->
-    {{ if .Params.categories }}
-    <footer class="post-tags">
-        {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
-        <a href="{{ $href }}">#{{ . }}</a>
-        {{ end }}
-    </footer>
-    {{ end }}
+    <div class="post-footer">
+        <hr>
+        <div class="pfhead"><h3>What next?</h3></div>
+        <div class="pfmsg">
+            <p>Have something you'd like to respond with? <a class="reply-by-email" href="mailto:{{ $email_address }}?subject={{ $subject }}">Send me a note via email</a> 
+                and let's start a <a href="https://amitg.blog/interaction-not-reaction">conversation.</a>
+            <p>You can also <a href="/feed">follow me via RSS</a>.</p></div>
+    </div>
 
     <!-- Replies via Webmentions -->
     {{ if .Site.Params.include_conversation }}
     <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
     {{ end }}
-
-    </article>
 </div>
 
 {{ end }}
