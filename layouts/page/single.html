@@ -1,18 +1,19 @@
 {{ define "main" }}
-<div class="content">
-    <article class="post-single">
-    <header class="post-meta">
-        <h1 class="page-title">
-            <a href="{{ .Permalink }}">
-                {{ .Title }}
-            </a>
-        </h1>
-    </header>
-    <section class="pcontent">{{ .Content }}</section>
-    </article>
+<main>
+    <div class="content">
+        <article class="post-single">
+        <header class="post-meta">
+            <h1 class="page-title">
+                <a href="{{ .Permalink }}">
+                    {{ .Title }}
+                </a>
+            </h1>
+        </header>
+        <section class="pcontent">{{ .Content }}</section>
+        </article>
 
-    {{ partial "pagenav.html" . }}
-    <div class="separator"></div>
-</div>
-
+        {{ partial "pagenav.html" . }}
+        <div class="separator"></div>
+    </div>
+</main>
 {{ end }}

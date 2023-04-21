@@ -1,16 +1,29 @@
 /* Base */
 :root {
-    --background: #fff;
+    --background: #F0ECDB;
     --text: #222;
-    --highlight: #3B71CA;
+    --highlight: #D64132;
+    --bdbackground: #030222;
+    --bdhighlight: #f9bf77;
 }
 
 body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     color: var(--text);
-    background-color: var(--background);
+    background-color: var(--bdbackground);
     line-height: 1.5;
+    width: 100%;
+    margin: 0px;
+}
+
+main {
+    width: 80%;
+    max-width: 660px;
+    background-color: var(--background);
+    margin: 4rem auto;
+    padding: 6rem;
+    border-radius: 10px;
 }
 
 footer {
@@ -20,9 +33,10 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--background);
+    background-color: var(--bdbackground);
     z-index: 2;
-    height: 6rem;
+    height: 5rem;
+    padding-top: 1rem;
 }
 
 img {
@@ -77,8 +91,8 @@ li {
     left: 0px;
     z-index: 2;
     width: 100%;
-    background-image: linear-gradient(rgba(255,255,255,0), #ffffff);
-    height: 8rem;
+    background-image: linear-gradient(rgba(240,236,219,0), var(--bdbackground));
+    height: 4rem;
 }
 
 .separator {
@@ -101,7 +115,7 @@ li {
 
 .intro {
     font-size: 20px;
-    margin: 10rem auto 3rem auto;
+    margin: 3rem auto;
 }
 
 .content {
@@ -132,6 +146,7 @@ li {
 .nav a {
     font-size: 18px;
     margin-right: 10px;
+    color: var(--bdhighlight);
 }
 
 .previous, .previous-inactive {
@@ -147,7 +162,7 @@ li {
 }
 
 .previous-inactive, .next-inactive {
-    color: #E0E0E0;
+    color: #4C516D !important;
     display: inline-block;
     pointer-events: none;
 }
@@ -182,7 +197,7 @@ a .generic-title {
 .t404 {
     display: flex;
     justify-content: center;
-    font-size: 16rem;
+    font-size: 8rem;
     margin-bottom: 0px;
     line-height: 0.8;
 }
@@ -216,6 +231,10 @@ input#input_search {
     float: left;
 }
 
+.row {
+    margin: 0.5rem auto;
+}
+
 .tcol {
     width: 80%;
 }
@@ -244,6 +263,15 @@ input#input_search {
         font-size: 16px;
     }
 
+    main {
+        margin: 1.4rem auto;
+        padding: 1.4rem;
+    }
+
+    .intro {
+        margin: 4rem auto;
+    }
+
     footer {
         height: 3rem;
     }
@@ -254,7 +282,7 @@ input#input_search {
     }
 
     .t404 {
-        font-size: 4rem;
+        font-size: 4rem;;
     }
     .d404 {
         font-size: 1.1rem;
@@ -276,13 +304,11 @@ input#input_search {
         --background: #030222;
         --text: #ddd;
         --highlight: #f9bf77;
+        --bdbackground: #030222;
+        --bdhighlight: #f9bf77;
     }
 
     .fade {
         background-image: linear-gradient(rgba(34,34,34,0), #030222) !important;
-    }
-
-    .previous-inactive, .next-inactive {
-        color: #4C516D;
     }
 }
