@@ -100,11 +100,6 @@ li {
     overflow-y: scroll;
 }
 
-.content, .intro {
-    width: 80%;
-    max-width: 660px;
-}
-
 .page-content {
     display: flex;
     justify-content: center;
@@ -264,8 +259,8 @@ input#input_search {
     }
 
     main {
-        margin: 1.4rem auto;
-        padding: 1.4rem;
+        margin: 2rem auto;
+        padding: 2rem;
     }
 
     .intro {
@@ -293,6 +288,18 @@ input#input_search {
 
     .next, .next-inactive {
         margin-right: 20px !important;
+    }
+
+    .preco {
+        font-size: 16px;
+        text-overflow: ellipsis;
+        overflow-wrap: break-word;
+    }
+
+    .tcol {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 }
 
