@@ -1,9 +1,8 @@
 name = "polar"
 license = "MIT"
 licenselink = "https://github.com/am1t/hugo-polar/blob/master/LICENSE"
-description = ""
+description = "Minimal theme with personality"
 homepage = "http://amit-test.micro.blog/"
-tags = [minimal]
 min_version = "0.41.0"
 
 [author]
