@@ -225,6 +225,10 @@ input#input_search {
     float: left;
 }
 
+.lcol a {
+    float: right;
+}
+
 .row {
     margin: 0.5rem auto;
 }
