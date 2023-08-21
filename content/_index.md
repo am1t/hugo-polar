@@ -10,4 +10,4 @@ I professionally work building backend services, but I also love designing inter
 
 Though a technology enthusiast, I have a passion [for writing fiction](/fiction/); it allows me to kindle the creative part of my heart, which I tend to lock down, unintentionally.
 
-A blog no more, this is my website. I elaborate here.
+A blog no more, this is my website. [I elaborate here](/colophon/).

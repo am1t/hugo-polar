@@ -252,6 +252,10 @@ input#input_search {
     color: #333;
 }
 
+.categorycloud-item sup {
+    color: var(--highlight);
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 769px) {
