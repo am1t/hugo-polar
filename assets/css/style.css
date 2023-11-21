@@ -256,6 +256,10 @@ input#input_search {
     color: var(--highlight);
 }
 
+.archive-entry {
+    margin: 10px 0;
+  }
+
 /* Media Queries */
 
 @media screen and (min-width: 769px) {
