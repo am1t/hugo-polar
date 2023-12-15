@@ -149,6 +149,7 @@ li {
 
 .links {
     order: 2;
+    display: inline-flex;
 }
 
 .next, .next-inactive {
