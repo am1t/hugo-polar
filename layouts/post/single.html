@@ -41,6 +41,8 @@
                 <p>You can also <a href="/subscribe">follow me via RSS</a>.</p></div>
         </div>
 
+        {{ partial "pagenav.html" . }}
+
         <!-- Replies via Webmentions -->
         {{ if .Site.Params.include_conversation }}
         <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
