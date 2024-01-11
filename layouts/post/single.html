@@ -34,11 +34,13 @@
         <div class="post-kudos"><button class="tinylytics_kudos"></button></div>
         <div class="post-footer">
             <hr>
-            <div class="pfhead"><h3>What next?</h3></div>
+            <div class="pfhead"><h3>Comment or what next?</h3></div>
             <div class="pfmsg">
-                <p>Have something you'd like to respond with? <a href="mailto:{{ $email_address }}?subject={{ $subject }}">Send me a note via email</a> 
+                <p>Have something you'd like to respond with? Comment below or <a href="mailto:{{ $email_address }}?subject={{ $subject }}">send me a note via email</a> 
                     and let's start a <a href="https://amitg.blog/interaction-not-reaction">conversation.</a>
                 <p>You can also <a href="/subscribe">follow me via RSS</a>.</p></div>
+                <script defer src="https://cdn.commento.io/js/commento.js"></script>
+                <div id="commento"></div>
         </div>
 
         {{ partial "pagenav.html" . }}
@@ -47,6 +49,8 @@
         {{ if .Site.Params.include_conversation }}
         <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
         {{ end }}
+
+
     </div>
 </main>
 {{ end }}
