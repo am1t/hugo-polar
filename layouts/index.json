@@ -32,7 +32,7 @@
 				{{ if .Title -}}
 				"title": {{ .Title | jsonify }},
 				{{- end -}}
-				{{- $s := .Content | jsonify -}}
+				{{- $s := .Content -}}
 				{{- $comment := printf "<p><a href='%s#commento'>Comment</a> or <a href='mailto:%s?subject=%s'>Reply via Email</a></p>" .Permalink $email_address $subject -}}
 				{{- $content_html := printf "%s\n%s" $s $comment | jsonify -}}
 				{{- $content_html := replace $content_html "\\u003c" "<" -}}
@@ -50,3 +50,6 @@
 		{{ end }}
 	]
 }
+
+
+"content_html": "\"\<p\>Friday evening began promising and then just fizzled out. I had planned many tasks but couldn\&rsquo;t get through to the majority. One big reason is that \<em\>I am shit tired\</em\>. My time at work is hectic. Worse, it is chaotic. So, each day leaves me mentally exhausted. Today was no different.\</p\>\\n\<p\>Not that I work long hours. Just the daily grind of finding clarity amidst the chaos, finding the right answers and the way forward sips the energy and drive from the non-office hours. Friday\&rsquo;s are worse because there\&rsquo;s the unspoken promise of recuperating through the imminent weekend. So, I simply give up on all the plans and sway along with my wandering mind.\</p\>\\n\<p\>Today was no different, as I signed the day off. With the hope that tomorrow, I regain the drive and cover for the time I lost.\</p\>\\n\"\n<p><a href='https://www.amitgawande.com/2024/01/19/friday-evenings-began.html#commento'>Comment</a> or <a href='mailto:reply@amitgawande.com?subject=Re: Friday evening began promising and then just fizzled …'>Reply via Email</a></p>",
