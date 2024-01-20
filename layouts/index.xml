@@ -37,7 +37,7 @@
       <description>
         {{- $s := .Content -}}
 				{{- $comment := printf "<p><a href='%s#commento'>Comment</a> or <a href='mailto:%s?subject=%s'>Reply via Email</a></p>" .Permalink $email_address $subject -}}
-				{{- $content_html := printf "%s\n%s" $s $comment | html -}}
+				{{- $content_html := printf "%s\n%s" $s $comment | safeHTML -}}
 				{{- $content_html := replace $content_html "\\u003c" "<" -}}
 				{{- $content_html := replace $content_html "\\u003e" ">" -}}
 				{{- $content_html := replace $content_html "\\u0026" "&" }}      
