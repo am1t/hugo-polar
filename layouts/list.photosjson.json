@@ -9,7 +9,7 @@
         "version": "0.0.9"
     },
 	"items": [
-		{{- $list := first 50 (where .Site.Pages "Params.categories" "intersect" (slice "Stories")) -}}
+		{{- $list := first 50 (where .Site.Pages "Params.categories" "==" "Stories") -}}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{
