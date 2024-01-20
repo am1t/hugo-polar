@@ -3,16 +3,8 @@
 {{ $show_plain := $.Site.Params.reply_by_email_show_plain }}
 {{ $email_address := $.Site.Params.reply_by_email_address }}
 {{ $email_address_present := in $email_address "@" }}
-{{ $subject := $.Site.Params.reply_by_email_subject_prefix }}
 {{ $enable_obfuscation := $.Site.Params.reply_by_email_enable_obfuscation }}
 
-{{ if (and .Title $show_title) }}
-{{ $subject = print $subject .Title }}
-{{ else if (and (not .Title) .Plain $show_plain) }}
-{{ $subject = (print $subject (replaceRE "(\\s)" " " .Plain)) | htmlUnescape | truncate 60 }}
-{{ else }}
-{{ $subject = print $subject .Permalink }}
-{{ end }}
 {
 	"version": "https://jsonfeed.org/version/1",
 	"title": "Excursions by Amit Gawande",
@@ -24,6 +16,14 @@
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{
+				{{ $subject := $.Site.Params.reply_by_email_subject_prefix }}
+				{{ if (and .Title $show_title) }}
+				{{ $subject = print $subject .Title }}
+				{{ else if (and (not .Title) .Plain $show_plain) }}
+				{{ $subject = (print $subject (replaceRE "(\\s)" " " .Plain)) | htmlUnescape | truncate 60 }}
+				{{ else }}
+				{{ $subject = print $subject .Permalink }}
+				{{ end }}
 				{{ if .Params.guid -}}
 				"id": "{{ .Params.guid }}",
 				{{- else -}}
@@ -33,11 +33,11 @@
 				"title": {{ .Title | jsonify }},
 				{{- end -}}
 				{{- $s := .Content | jsonify -}}
-				{{- $s := replace $s "\\u003c" "<" -}}
-				{{- $s := replace $s "\\u003e" ">" -}}
-				{{- $s := replace $s "\\u0026" "&" }}
-				{{ $comment := "<p><p><a href='{{ .Permalink }}#commento'>Comment</a> or <a href='mailto:{{ $email_address }}?subject={{ $subject }}'>Reply via Email</a></p></p>" }}
-				{{ $content_html := printf "%s\n%s" $s $comment }}
+				{{- $comment := "<p><a href='{{ .Permalink }}#commento'>Comment</a> or <a href='mailto:{{ $email_address }}?subject={{ $subject }}'>Reply via Email</a></p>" -}}
+				{{- $content_html := printf "%s\n%s" $s $comment -}}
+				{{- $content_html := replace $content_html "\\u003c" "<" -}}
+				{{- $content_html := replace $content_html "\\u003e" ">" -}}
+				{{- $content_html := replace $content_html "\\u0026" "&" }}
 				"content_html": {{ $content_html }},
 				"date_published": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
 				"url": "{{ .Permalink }}"
