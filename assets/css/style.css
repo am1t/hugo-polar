@@ -337,6 +337,10 @@ input#input_search {
         margin-right: 20px !important;
     }
 
+    .archive-entry{
+        font-size: 16px;
+    }
+
     .preco {
         font-size: 16px;
         text-overflow: ellipsis;
