@@ -33,7 +33,7 @@
 				"title": {{ .Title | jsonify }},
 				{{- end -}}
 				{{- $s := .Content | jsonify -}}
-				{{- $comment := "<p><a href='{{ .Permalink }}#commento'>Comment</a> or <a href='mailto:{{ $email_address }}?subject={{ $subject }}'>Reply via Email</a></p>" -}}
+				{{- $comment := printf "<p><a href='%s#commento'>Comment</a> or <a href='mailto:%s?subject=%s'>Reply via Email</a></p>" {{ .Permalink }} {{ $email_address }} {{ $subject }} -}}
 				{{- $content_html := printf "%s\n%s" $s $comment -}}
 				{{- $content_html := replace $content_html "\\u003c" "<" -}}
 				{{- $content_html := replace $content_html "\\u003e" ">" -}}
