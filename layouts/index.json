@@ -31,7 +31,7 @@
 				{{- end }}
 				{{ $rss_title := .Title }}
 				{{ if not .Title }}
-					{{ $rss_title := (replaceRE "(\\s)" " " .Plain) | htmlUnescape | truncate 32 }}
+					{{ $rss_title = (replaceRE "(\\s)" " " .Plain) | htmlUnescape | truncate 32 }}
 				{{ end }}				
 				"title": {{ $rss_title | jsonify }},
 				{{- $s := .Content -}}

@@ -20,9 +20,9 @@
     <item>
       {{ $rss_title := .Title }}
       {{ if not .Title }}
-        {{ $rss_title := (replaceRE "(\\s)" " " .Plain) | htmlUnescape | truncate 32 }}
+        {{ $rss_title = (replaceRE "(\\s)" " " .Plain) | htmlUnescape | truncate 32 }}
       {{ end }}	
-      <title>{{ $rss_title }}</title>
+      <title>{{- $rss_title -}}</title>
       {{ $subject := $.Site.Params.reply_by_email_subject_prefix }}
       {{ if (and .Title $show_title) }}
       {{ $subject = print $subject .Title }}
