@@ -19,7 +19,7 @@
 				{{- $s := replace $s "\\u003c" "<" -}}
 				{{- $s := replace $s "\\u003e" ">" -}}
 				{{- $s := replace $s "\\u0026" "&" }}
-                {{ $caption := .Plain | truncate 50 | jsonify }}
+                {{ $caption := .Plain | htmlUnescape | truncate 50 | jsonify }}
 				"content_html": {{ $s }},
 				"url": "{{ .Permalink }}",
                 "_open_stories": {
