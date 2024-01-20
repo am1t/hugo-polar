@@ -5,19 +5,25 @@
   {{ $email_address_present := in $email_address "@" }}
   {{ $enable_obfuscation := $.Site.Params.reply_by_email_enable_obfuscation }}
 
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Excursions by Amit Gawande</title>
     <link>{{ .Permalink }}</link>
     <description></description>
     {{ with .Site.LanguageCode }}
     <language>{{.}}</language>
+    <atom:link href="https://www.amitgawande.com/feed.xml" rel="self" type="application/rss+xml" />
     {{ end }}
     <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
     {{- $list := first 25 (where .Site.Pages "Type" "post") -}}
     {{ range $list }}
     <item>
-      <title>{{ .Title }}</title>
+      {{ if .Title }}
+        {{ $rss_title := .Title }}
+      {{ else }}
+        {{ $rss_title := (replaceRE "(\\s)" " " .Plain) | htmlUnescape | truncate 32 }}
+      {{ end }}
+      <title>{{ $rss_title }}</title>
       {{ $subject := $.Site.Params.reply_by_email_subject_prefix }}
       {{ if (and .Title $show_title) }}
       {{ $subject = print $subject .Title }}
@@ -47,3 +53,4 @@
     {{ end }}
   </channel>
 </rss>
+Apple’s response to the ruling
