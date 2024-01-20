@@ -279,6 +279,30 @@ input#input_search {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
 
+open-stories:not(:defined), open-stories::part(button) {
+    font-family: system-ui, sans-serif;
+    border: 1px solid var(--borderColor);
+    box-shadow: inset 0 0 0 2px var(--backgroundColor);
+    color: var(--textColor);
+    background: var(--subtleBackgroundColor);
+    padding: 10px 0;
+    text-align: center;
+    height: 76px;
+    width: 76px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: all .3s;
+    text-transform: lowercase;
+    line-height: normal;
+    justify-content: center;
+    cursor: pointer;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 769px) {
