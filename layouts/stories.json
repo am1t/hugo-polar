@@ -1,0 +1,36 @@
+{
+    "version": "https://jsonfeed.org/version/1.1",
+	"title": "Snap Stories by Amit Gawande",
+	"icon": "https://amitgawande.com/uploads/2020/262374b94f.jpg",
+	"home_page_url": "{{ .Site.BaseURL }}",
+	"feed_url": "{{ .Site.BaseURL }}/stories.json",
+    "description": "Stories from India as photos by Amit Gawande",
+    "_open_stories": {
+        "version": "0.0.9"
+    },
+	"items": [
+		{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
+		{{- $len := (len $list) -}}
+		{{ range $index, $value := $list }}
+			{
+				"id": "{{ .Permalink }}",
+                "date_published": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
+				{{- $s := .Content | jsonify -}}
+				{{- $s := replace $s "\\u003c" "<" -}}
+				{{- $s := replace $s "\\u003e" ">" -}}
+				{{- $s := replace $s "\\u0026" "&" }}
+                {{ $caption := .Plain | jsonify }}
+				"content_html": {{ $s }},
+				"url": "{{ .Permalink }}",
+                "_open_stories": {
+				{{ range first 1 .Params.photos }}
+                    "mime_type": "image/jpeg",
+                    "url": "{{ . }}",
+                    "caption": "{{ $caption }}"
+				{{ end }}
+                }
+			}
+			{{- if ne (add $index 1) $len -}},{{- end -}}
+		{{ end }}
+	]
+}
