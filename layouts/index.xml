@@ -18,7 +18,7 @@
     {{- $list := first 25 (where .Site.Pages "Type" "post") -}}
     {{ range $list }}
     <item>
-      $rss_title := .Title
+      {{ $rss_title := .Title }}
       {{ if not .Title }}
         {{ $rss_title := (replaceRE "(\\s)" " " .Plain) | htmlUnescape | truncate 32 }}
       {{ end }}	

@@ -29,7 +29,7 @@
 				{{- else -}}
 				"id": "{{ .Permalink }}",
 				{{- end }}
-				$rss_title := .Title
+				{{ $rss_title := .Title }}
 				{{ if not .Title }}
 					{{ $rss_title := (replaceRE "(\\s)" " " .Plain) | htmlUnescape | truncate 32 }}
 				{{ end }}				
