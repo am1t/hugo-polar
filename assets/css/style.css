@@ -319,6 +319,11 @@ open-stories:not(:defined):hover, open-stories::part(button):hover {
     color: var(--bdbackground);
 }
 
+.meta-link {
+    margin-left: 0.4rem;
+    font-size: .7em;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 769px) {
