@@ -4,26 +4,6 @@
     {{ .Content }}
 
     <hr>
-    <h3>Latest Posts</h3>
-    {{ $day := .Date.Day }}
-    {{ $daySuffix := "th" }}
-    
-    {{ if or (eq $day 1) (eq $day 21) (eq $day 31) }}
-      {{ $daySuffix = "st" }}
-    {{ else if or (eq $day 2) (eq $day 22) }}
-      {{ $daySuffix = "nd" }}
-    {{ else if or (eq $day 3) (eq $day 23) }}
-      {{ $daySuffix = "rd" }}
-    {{ end }}
-    {{ range ( where .Site.RegularPages "Type" "post" | first 2 ) }}
-        <p class="archive-entry">
-			<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "January 2" }}{{ $daySuffix }}</span></a>:
-			<span class="p-name"><b>{{ .Title }}</b></span> 
-			<span class="p-summary">{{ .Summary | truncate 100 }}</span>
-		</p>
-    {{end}}
-
-    <hr>
     <h3 class="section-header" id="stories">Stories</h3><a href="https://github.com/dddddddddzzzz/OpenStories" class="meta-link">What are stories?</a>
     <script src="https://unpkg.com/open-stories-element@0.0.21" type="module" defer></script>
     <div class="stories-container">
@@ -133,6 +113,27 @@
             <div class="lcol"><a href="https://www.amitgawande.com/2007/04/12/185400.html">2007</a></div>
         </div>
     </div>
+
+    <hr>
+    <h3>Latest Posts</h3>
+    {{ $day := .Date.Day }}
+    {{ $daySuffix := "th" }}
+    
+    {{ if or (eq $day 1) (eq $day 21) (eq $day 31) }}
+      {{ $daySuffix = "st" }}
+    {{ else if or (eq $day 2) (eq $day 22) }}
+      {{ $daySuffix = "nd" }}
+    {{ else if or (eq $day 3) (eq $day 23) }}
+      {{ $daySuffix = "rd" }}
+    {{ end }}
+    {{ range ( where .Site.RegularPages "Type" "post" | first 2 ) }}
+        <p class="archive-entry">
+			<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "January 2" }}{{ $daySuffix }}</span></a>:
+			<span class="p-name"><b>{{ .Title }}</b></span> 
+			<span class="p-summary">{{ .Summary | truncate 100 }}</span>
+		</p>
+    {{end}}
+
     {{ partial "pagenav.html" . }}
 </div>
 </main>
