@@ -305,7 +305,7 @@ open-stories:not(:defined), open-stories::part(button) {
     height: 72px;
     width: 72px;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 14px;
     box-sizing: border-box;
     align-items: center;
     display: flex;
@@ -405,7 +405,7 @@ open-stories:not(:defined):hover, open-stories::part(button):hover {
     open-stories:not(:defined), open-stories::part(button) {
         height: 56px;
         width: 56px;
-        font-size: 16px;
+        font-size: 12px;
     }
 }
 
