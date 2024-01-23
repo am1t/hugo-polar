@@ -20,14 +20,17 @@
 				{{- $s := replace $s "\\u0026" "&" }}
                 {{ $caption := .Plain | htmlUnescape | truncate 50 | jsonify }}
 				"content_html": {{ $s }},
-				"url": "{{ .Permalink }}",
+				"url": "{{ .Permalink }}"
+				{{- with .Params.photos -}}
+				,
                 "_open_stories": {
-				{{ range first 1 .Params.photos }}
-                    "mime_type": "image/jpeg",
-                    "url": "{{ . }}",
-                    "caption": {{ $caption }}
-				{{ end }}			
+					{{ range first 1 . }}
+						"mime_type": "image/jpeg",
+						"url": "{{ . }}",
+						"caption": {{ $caption }}
+					{{ end }}			
                 }
+				{{- end }}
 				{{- with .Params.categories -}}
 				,
 				"tags": {{ . | jsonify }}
