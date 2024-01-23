@@ -9,9 +9,8 @@
         "version": "0.0.9"
     },
 	"items": [
-		{{- $list := first 50 (where .Site.Pages "Params.categories" "intersect" (slice "Stories")) -}}
-		{{- $len := (len $list) -}}
-		{{ range $index, $value := $list }}
+		{{- $len := (len .Pages) -}}
+		{{ range $index, $value := .Pages }}
 			{
 				"id": "{{ .Permalink }}",
                 "date_published": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
@@ -19,7 +18,7 @@
 				{{- $s := replace $s "\\u003c" "<" -}}
 				{{- $s := replace $s "\\u003e" ">" -}}
 				{{- $s := replace $s "\\u0026" "&" }}
-                {{ $caption := .Plain | truncate 50 | jsonify }}
+                {{ $caption := .Plain | htmlUnescape | truncate 50 | jsonify }}
 				"content_html": {{ $s }},
 				"url": "{{ .Permalink }}",
                 "_open_stories": {
@@ -27,8 +26,12 @@
                     "mime_type": "image/jpeg",
                     "url": "{{ . }}",
                     "caption": {{ $caption }}
-				{{ end }}
-                }
+				{{ end }}			
+                },
+				{{- with .Params.categories -}}
+				,
+				"tags": {{ . | jsonify }}
+				{{- end }}
 			}
 			{{- if ne (add $index 1) $len -}},{{- end -}}
 		{{ end }}

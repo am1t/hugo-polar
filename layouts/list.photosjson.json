@@ -28,7 +28,11 @@
                     "url": "{{ . }}",
                     "caption": {{ $caption }}
 				{{ end }}
-                }
+                },
+				{{- with .Params.categories -}}
+				,
+				"tags": {{ . | jsonify }}
+				{{- end }}	
 			}
 			{{- if ne (add $index 1) $len -}},{{- end -}}
 		{{ end }}
