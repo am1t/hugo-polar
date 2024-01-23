@@ -1,0 +1,9 @@
+{
+    "outputs": {
+        "home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveJSON", "PhotosJSON", "PodcastXML", "PodcastJSON" ],
+        "page": [ "HTML" ],
+        "section": [ "HTML", "PhotosJSON" ],
+        "taxonomy": [ "HTML", "RSS", "JSON", "PhotosJSON" ],
+        "term": [ "HTML", "RSS", "JSON" ]
+    }
+}
