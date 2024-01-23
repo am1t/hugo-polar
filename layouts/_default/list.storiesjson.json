@@ -9,7 +9,8 @@
         "version": "0.0.9"
     },
 	"items": [
-		{{- $len := (len .Site.Pages) -}}
+		{{- $list := first 50 (where .Site.Pages "Params.photos" "!=" nil) -}}
+		{{- $len := (len $list) -}}
 		{{ range $index, $value := .Site.Pages }}
 			{
 				"id": "{{ .Permalink }}",

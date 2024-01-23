@@ -1,9 +1,17 @@
 {
+    "outputFormats": {
+		"StoriesJSON": {
+			"mediaType": "application/json",
+			"baseName": "stories",
+			"isPlainText": true,
+			"notAlternative": true
+		}
+	},
     "outputs": {
         "home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveJSON", "PhotosJSON", "PodcastXML", "PodcastJSON" ],
         "page": [ "HTML" ],
-        "section": [ "HTML", "PhotosJSON" ],
-        "taxonomy": [ "HTML", "RSS", "JSON", "PhotosJSON" ],
+        "section": [ "HTML", "StoriesJSON" ],
+        "taxonomy": [ "HTML", "RSS", "JSON", "StoriesJSON" ],
         "term": [ "HTML", "RSS", "JSON" ]
     }
 }
