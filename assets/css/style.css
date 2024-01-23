@@ -325,7 +325,7 @@ open-stories:not(:defined):hover, open-stories::part(button):hover {
 
 .meta-link {
     margin-left: 0.4rem;
-    font-size: .7em;
+    font-size: .8em;
 }
 
 /* Media Queries */
