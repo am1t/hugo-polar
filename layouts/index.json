@@ -35,7 +35,7 @@
 				{{ end }}				
 				"title": {{ $rss_title | jsonify }},
 				{{- $s := .Content -}}
-				{{- $comment := printf "<p><a href='%s#commento'>Comment</a> or <a href='mailto:%s?subject=%s'>Reply via Email</a></p>" .Permalink $email_address $subject -}}
+				{{- $comment := printf "<p><a href='mailto:%s?subject=%s'>Reply via Email</a></p>" .Permalink $email_address $subject -}}
 				{{- $content_html := printf "%s\n%s" $s $comment | jsonify -}}
 				{{- $content_html := replace $content_html "\\u003c" "<" -}}
 				{{- $content_html := replace $content_html "\\u003e" ">" -}}
