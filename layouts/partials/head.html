@@ -6,8 +6,8 @@
     <title>{{ block "title" . }}{{ with .Title }}{{ . }} - {{ end }}Amit Gawande{{ end }}</title>
     <meta name="description" content="Musings etc. from Amit Gawande">
 
-    <link rel="shortcut icon" href="https://amitgawande.com/uploads/2020/262374b94f.jpg" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="https://amitgawande.com/uploads/2020/262374b94f.jpg" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://mb.amitgawande.com/uploads/2020/262374b94f.jpg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://mb.amitgawande.com/uploads/2020/262374b94f.jpg" type="image/x-icon" />
 
     <link rel="me" href="https://social.lol/@amit" />
     <link rel="me" href="https://github.com/am1t">
@@ -19,8 +19,8 @@
     {{ $style := resources.Get "css/style.css" | resources.ToCSS | resources.Minify }}
     <link rel="preload stylesheet" as="style" href="{{ $style.Permalink }}">
 
-    <link rel="alternate" type="application/rss+xml"  href="https://amitgawande.com/feed"  title="Amit Gawande's RSS Feed">
-    <link rel="alternate" type="application/json"  href="https://amitgawande.com/feed.json"  title="Amit Gawande's JSON Feed">
+    <link rel="alternate" type="application/rss+xml"  href="https://mb.amitgawande.com/feed"  title="Amit Gawande's RSS Feed">
+    <link rel="alternate" type="application/json"  href="https://mb.amitgawande.com/feed.json"  title="Amit Gawande's JSON Feed">
 
     {{ partial "mbhead.html" . }}
 </head>

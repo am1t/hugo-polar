@@ -1,7 +1,7 @@
 {
     "version": "https://jsonfeed.org/version/1.1",
 	"title": "Snap Stories by Amit Gawande",
-	"icon": "https://amitgawande.com/uploads/2020/262374b94f.jpg",
+	"icon": "https://mb.amitgawande.com/uploads/2020/262374b94f.jpg",
 	"home_page_url": "{{ .Site.BaseURL }}",
 	"feed_url": "{{ .Site.BaseURL }}/stories.json",
     "description": "Stories from India as photos by Amit Gawande",
